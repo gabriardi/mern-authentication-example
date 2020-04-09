@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const users = require('./routes/api/users');
+const dashboard = require('./routes/api/dashboard');
 
 // Connect to MongoDB
 // mongoose
@@ -25,12 +26,13 @@ mongoose
 
 const app = express();
 app.use(express.json());
-
-// Routes
-app.use('/api/users', users);
 // Passport middleware
 app.use(passport.initialize());
 // Passport configuration
 require('./config/passport')(passport);
+
+// Routes
+app.use('/api/users', users);
+app.use('/api/dashboard', dashboard);
 
 app.listen(process.env.PORT || 5000);

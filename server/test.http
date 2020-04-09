@@ -18,3 +18,7 @@ content-type: application/json
     "email":"test@email.com",
     "password":"test1234"
 }
+
+### GET Dashboard when token is valid
+GET {{BASE_URL}}/api/dashboard HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGVjOTE2YmI4NjJlNDYwZGFhMmY1MCIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDIzMzAzLCJleHAiOjE1ODY0MjM5MDN9.2mWhvRrQW3GIXGKG0ULw3rO8mYqDyrcC_yWsfZg-tJM
