@@ -7,15 +7,16 @@ const passport = require('passport');
 const users = require('./routes/api/users');
 const dashboard = require('./routes/api/dashboard');
 
-// Connect to MongoDB
+// Connect to MongoDB Atlas
 // mongoose
 //   .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URL}`, {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
+//     useFindAndModify: false,
 //   })
 //   .catch((err) => console.log(err));
 
-// Local testing
+// Connect to local MongoDB
 mongoose
   .connect(`mongodb://localhost:27017/userDB?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
@@ -23,7 +24,8 @@ mongoose
     useFindAndModify: false,
   })
   .catch((err) => console.log(err));
-// /////
+
+//
 
 const app = express();
 app.use(express.json());
