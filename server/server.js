@@ -20,6 +20,7 @@ mongoose
   .connect(`mongodb://localhost:27017/userDB?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .catch((err) => console.log(err));
 // /////

@@ -9,6 +9,16 @@ const dataValidator = require('../../validation/dataValidator');
 
 const router = express.Router();
 
+const generateAccessToken = (payload) =>
+  jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' });
+
+const deleteRefreshToken = (token) => {
+  User.findOneAndUpdate({ refreshToken: token }, { $pull: { refreshToken: token } }, (err) => {
+    if (!err) return true;
+  });
+};
+
+// Register new user (by unique email)
 router.post('/register', (req, res) => {
   // Check if data is valid
   const { errors, isValid } = dataValidator(req.body, 'register');
@@ -37,6 +47,7 @@ router.post('/register', (req, res) => {
   });
 });
 
+// Login existing user
 router.post('/login', (req, res) => {
   // Check if data is valid
   const { error, isValid } = dataValidator(req.body, 'login');
@@ -59,16 +70,48 @@ router.post('/login', (req, res) => {
           id: foundUser.id,
           name: foundUser.name,
         };
-        // Sign token
-        jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' }, (err, token) => {
-          if (err) throw err;
-          res.json({ accessToken: `Bearer ${token}` });
-        });
+        // Generate token
+        const accessToken = generateAccessToken(payload);
+        const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH, { expiresIn: '24h' });
+        // Save refresh token
+        foundUser.refreshToken.push(refreshToken);
+        foundUser.save();
+        res.json({ accessToken, refreshToken });
       } else {
         res.status(401).json({ unauthorized: 'Unauthorized access' });
       }
     });
   });
+});
+
+// Refresh jwt
+router.post('/token', (req, res) => {
+  const refreshToken = req.body.token;
+  if (refreshToken === null) return res.sendStatus(401);
+
+  jwt.verify(refreshToken, process.env.JWT_REFRESH, (err, payload) => {
+    if (err) {
+      // if refresh token is expired delete it from server
+      if (err.name === 'TokenExpiredError') {
+        deleteRefreshToken(refreshToken);
+      }
+      return res.sendStatus(401);
+    }
+    User.findById(payload.id, (err, foundUser) => {
+      if (err) throw err;
+      if (!foundUser.refreshToken.includes(refreshToken)) return res.sendStatus(401);
+      const accessToken = generateAccessToken({ id: payload.id, name: payload.name });
+      res.json({ accessToken });
+    });
+  });
+});
+
+// Logout user - delete refresh token
+router.delete('/logout', (req, res) => {
+  const { token } = req.body;
+
+  deleteRefreshToken(token);
+  return res.sendStatus(200);
 });
 
 module.exports = router;

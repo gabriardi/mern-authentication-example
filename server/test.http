@@ -19,6 +19,22 @@ content-type: application/json
     "password":"test1234"
 }
 
+### Refresh token
+POST {{BASE_URL}}/api/users/token HTTP/1.1
+content-type: application/json
+
+{
+    "token":""
+}
+
+### Logout user
+DELETE {{BASE_URL}}/api/users/logout HTTP/1.1
+content-type: application/json
+
+{
+    "token":""
+}
+
 ### GET Dashboard when token is valid
 GET {{BASE_URL}}/api/dashboard HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGVjOTE2YmI4NjJlNDYwZGFhMmY1MCIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDI0OTczLCJleHAiOjE1ODY0MjUyNzN9.rEJ7kPRAe-M_twh4WpnmsNVg0hE3W2HKwyvm_hT1Ce0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGYzYTdlNmMwMGExNjE2ZTA2OTM3OSIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDQ1MDk2LCJleHAiOjE1ODY0NDUzOTZ9.iiorsr5-RBBJBSQ9s2JVtbb6AkL53zbZ9wK7J0LK3hE
