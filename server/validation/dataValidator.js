@@ -1,15 +1,7 @@
 const validator = require('validator');
+const isEmpty = require('is-empty');
 
-const isEmpty = (val) => {
-  if (val === undefined) return true;
-  if (val === null) return true;
-  if (val === 0) return true;
-  if (val === {}) return true;
-  if (val.trim() === '') return true;
-  return false;
-};
-
-const dataValidator = (data, type = 'login') => {
+const dataValidator = (data, type) => {
   const errors = {};
 
   if (isEmpty(data.email)) errors.email = 'email is required';
