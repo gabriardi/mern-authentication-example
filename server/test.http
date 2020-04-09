@@ -1,0 +1,10 @@
+@BASE_URL = http://localhost:5000
+
+POST {{BASE_URL}}/api/users/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test",
+    "email":"test@email.com",
+    "password":"test1234"
+}
