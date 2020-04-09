@@ -21,4 +21,4 @@ content-type: application/json
 
 ### GET Dashboard when token is valid
 GET {{BASE_URL}}/api/dashboard HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGVjOTE2YmI4NjJlNDYwZGFhMmY1MCIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDIzMzAzLCJleHAiOjE1ODY0MjM5MDN9.2mWhvRrQW3GIXGKG0ULw3rO8mYqDyrcC_yWsfZg-tJM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGVjOTE2YmI4NjJlNDYwZGFhMmY1MCIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDI0OTczLCJleHAiOjE1ODY0MjUyNzN9.rEJ7kPRAe-M_twh4WpnmsNVg0hE3W2HKwyvm_hT1Ce0

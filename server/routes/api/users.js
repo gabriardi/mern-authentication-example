@@ -60,7 +60,7 @@ router.post('/login', (req, res) => {
           name: foundUser.name,
         };
         // Sign token
-        jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '10m' }, (err, token) => {
+        jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' }, (err, token) => {
           if (err) throw err;
           res.json({ accessToken: `Bearer ${token}` });
         });
