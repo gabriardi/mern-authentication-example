@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 const users = require('./routes/api/users');
 
@@ -27,5 +28,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/users', users);
+// Passport middleware
+app.use(passport.initialize());
+// Passport configuration
+require('./config/passport')(passport);
 
 app.listen(process.env.PORT || 5000);

@@ -1,6 +1,6 @@
 @BASE_URL = http://localhost:5000
 
-### Register new user
+### Register user
 POST {{BASE_URL}}/api/users/register HTTP/1.1
 content-type: application/json
 
