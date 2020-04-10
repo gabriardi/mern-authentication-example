@@ -7,7 +7,8 @@ content-type: application/json
 {
     "name": "test",
     "email":"test@email.com",
-    "password":"test1234"
+    "password":"test1234",
+    "password2":"test1234"
 }
 
 ### Login user
@@ -37,4 +38,4 @@ content-type: application/json
 
 ### GET Dashboard when token is valid
 GET {{BASE_URL}}/api/dashboard HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGYzYTdlNmMwMGExNjE2ZTA2OTM3OSIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDQ1MDk2LCJleHAiOjE1ODY0NDUzOTZ9.iiorsr5-RBBJBSQ9s2JVtbb6AkL53zbZ9wK7J0LK3hE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGZmM2QyMjM3Y2RhNzM2ZDFjNGZiNCIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDkyNDI1LCJleHAiOjE1ODY0OTI3MjV9.yseulDNub8E9kw9SWWmvAfxfhbV8sWonoeS1Os72g8o

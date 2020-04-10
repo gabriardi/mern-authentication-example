@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../../models/User');
-const dataValidator = require('../../validation/dataValidator');
+const { validateRegisterInput, validateLoginInput } = require('../../validation/dataValidator');
 
 const router = express.Router();
 
@@ -21,7 +21,7 @@ const deleteRefreshToken = (token) => {
 // Register new user (by unique email)
 router.post('/register', (req, res) => {
   // Check if data is valid
-  const { errors, isValid } = dataValidator(req.body, 'register');
+  const { errors, isValid } = validateRegisterInput(req.body);
   if (!isValid) return res.status(400).json(errors);
 
   const { name, email, password } = req.body;
@@ -50,8 +50,8 @@ router.post('/register', (req, res) => {
 // Login existing user
 router.post('/login', (req, res) => {
   // Check if data is valid
-  const { error, isValid } = dataValidator(req.body, 'login');
-  if (!isValid) return res.status(400).json(error);
+  const { errors, isValid } = validateLoginInput(req.body);
+  if (!isValid) return res.status(400).json(errors);
 
   const { email, password } = req.body;
 
