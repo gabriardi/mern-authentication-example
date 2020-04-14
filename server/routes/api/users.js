@@ -10,7 +10,7 @@ const { validateRegisterInput, validateLoginInput } = require('../../validation/
 const router = express.Router();
 
 const generateAccessToken = (payload) =>
-  jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' });
+  `Bearer ${jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5m' })}`;
 
 const deleteRefreshToken = (token) => {
   User.findOneAndUpdate({ refreshToken: token }, { $pull: { refreshToken: token } }, (err) => {
