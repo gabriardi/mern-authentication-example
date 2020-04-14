@@ -16,7 +16,7 @@ POST {{BASE_URL}}/api/users/login HTTP/1.1
 content-type: application/json
 
 {
-    "email":"test@email.com",
+    "email":"test@test.com",
     "password":"test1234"
 }
 
@@ -38,4 +38,4 @@ content-type: application/json
 
 ### GET Dashboard when token is valid
 GET {{BASE_URL}}/api/dashboard HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGZmM2QyMjM3Y2RhNzM2ZDFjNGZiNCIsIm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNTg2NDkyNDI1LCJleHAiOjE1ODY0OTI3MjV9.yseulDNub8E9kw9SWWmvAfxfhbV8sWonoeS1Os72g8o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOTU3MzZlNGE0MTRkMjgxMTAyMzVmMCIsIm5hbWUiOiJnYWJyaWVsZSIsImlhdCI6MTU4Njg1OTcyOSwiZXhwIjoxNTg2ODYwMDI5fQ.ZaEBOBxFqk1NxGcLtHmm1l9N-TBEMHGmj524gGuHGco
