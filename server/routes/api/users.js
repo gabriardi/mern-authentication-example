@@ -101,7 +101,7 @@ router.post('/token', (req, res) => {
       if (err) throw err;
       if (!foundUser.refreshToken.includes(refreshToken)) return res.sendStatus(401);
       const accessToken = generateAccessToken({ id: payload.id, name: payload.name });
-      res.json({ accessToken });
+      res.status(201).json({ accessToken });
     });
   });
 });
