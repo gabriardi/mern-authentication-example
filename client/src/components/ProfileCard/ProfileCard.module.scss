@@ -1,0 +1,45 @@
+@import 'scss/config';
+
+.ProfileCard {
+  padding: 3rem;
+  border-radius: $border-radius-default;
+  box-shadow: 0 1rem 1rem rgba(#000, 0.1);
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+  transition: all 0.2s;
+  grid-template-columns: min-content max-content;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0.5rem 2rem 1px rgba($color-primary, 0.3);
+  }
+  &:active {
+    box-shadow: 0 0.5rem 1rem 2px rgba($color-primary, 0.5);
+  }
+
+  &Icon {
+    width: 20px;
+    height: 20px;
+    fill: $color-primary;
+  }
+
+  &Img {
+    padding: 1.5rem;
+    grid-column: 1/-1;
+    justify-self: center;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &Name,
+  &Location {
+    grid-column: 1/-1;
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: min-content max-content;
+    justify-content: start;
+    align-items: center;
+  }
+}

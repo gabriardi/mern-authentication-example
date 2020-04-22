@@ -8,7 +8,8 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
   // Fake api request: if user is authenticated and has valid token returns json with profiles
   // Use user id as seed to get same results each time
   const seed = req.user._id;
-  const url = `https://randomuser.me/api/?inc=gender,name,nat,picture,location&results=30&seed=${seed}`;
+  const { results, page } = req.query;
+  const url = `https://randomuser.me/api/?inc=gender,name,nat,picture,location&page=${page}&results=${results}&seed=${seed}`;
   res.redirect(url);
 });
 

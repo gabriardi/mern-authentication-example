@@ -1,0 +1,1 @@
+export const SHOW_REGISTER_FACE = 'SHOW_REGISTER_FACE';

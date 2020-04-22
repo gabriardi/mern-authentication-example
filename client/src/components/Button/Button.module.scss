@@ -1,0 +1,27 @@
+@import 'scss/config';
+
+.Button {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1.5rem;
+  border-radius: $border-radius-default;
+  border: none;
+  outline: none;
+  display: block;
+  color: $color-text-primary;
+  background-color: $color-primary-dark;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+
+  &:hover {
+    background-color: $color-primary;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 3rem rgba(#000, 0.2);
+  }
+  &:active {
+    background-color: $color-primary-dark;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 1rem 2rem rgba(#000, 0.2);
+  }
+}

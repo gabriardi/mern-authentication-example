@@ -1,0 +1,20 @@
+@import 'scss/config';
+
+.LoginRegister {
+  position: relative;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.backgroundImg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  filter: blur(4px);
+  background-image: linear-gradient(rgba(#000, 0.3), rgba(#000, 0.3)),
+    url(../../assets/images/background-img.jpg);
+  background-size: cover;
+  background-position: center;
+}

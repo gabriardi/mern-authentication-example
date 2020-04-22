@@ -1,0 +1,37 @@
+// Colors
+$color-primary: #00b894;
+$color-primary-dark: #006b56;
+$color-primary-light: #19ffd1;
+
+$color-secondary: $color-primary-dark;
+$color-secondary-light: $color-primary-light;
+
+$color-white: #fcfffe;
+
+$color-accent: #b83100;
+$color-warning: #B86B09;
+
+$color-background-selection: $color-white;
+
+// Text colors
+$color-text-primary: $color-white;
+
+// Linear gradients
+$gradient-dark: linear-gradient(
+  to right,
+  $color-secondary-light,
+  $color-secondary
+);
+
+// Border radius
+$border-radius-default: 3px;
+
+// Fonts
+$font-primary: 'Montserrat';
+
+$font-size-default: 1.6rem;
+
+// Media Queries Break Points
+
+$bp-medium: 56.25em; //900px
+$bp-small: 25em; //400px

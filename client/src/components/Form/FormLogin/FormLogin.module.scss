@@ -1,0 +1,43 @@
+@import 'scss/config';
+
+.errorModalBtn {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: $border-radius-default;
+  border: 1px solid $color-accent;
+  background-color: rgba(#fff, 0.5);
+  color: $color-accent;
+  position: absolute;
+  bottom: 3rem;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+
+  & > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.46, 0.74, 0.4, 1.95);
+    padding: 3rem;
+  }
+
+  &Invisible {
+    position: absolute;
+    left: 0;
+    top: -100%;
+  }
+  &:hover &Visible {
+    transform: translateY(100%);
+  }
+  &:hover &Invisible {
+    top: 0;
+  }
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}

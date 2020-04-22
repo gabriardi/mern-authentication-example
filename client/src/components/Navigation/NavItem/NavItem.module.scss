@@ -1,0 +1,27 @@
+@import 'scss/config';
+
+.navItem {
+  font-size: 2rem;
+  text-decoration: none;
+  color: $color-white;
+  transition: all 0.2s;
+  padding: 2.5rem;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 1.5rem;
+  }
+
+  &:hover:not(&Active) {
+    transform: translateY(-0.2rem);
+  }
+
+  &:hover,
+  &:hover > *,
+  &Active {
+    color: $color-primary-light;
+    fill: $color-primary-light;
+  }
+}

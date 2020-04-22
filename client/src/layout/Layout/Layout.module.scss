@@ -1,0 +1,10 @@
+@import 'scss/config';
+
+.Layout {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: min-content max-content min-content;
+  row-gap: 2rem;
+  align-items: center;
+  margin: 0 2rem;
+}

@@ -1,0 +1,38 @@
+@import 'scss/config';
+
+.footer {
+  background-image: $gradient-dark;
+  color: $color-white;
+  padding: 3rem;
+  text-align: center;
+
+  &BtnLink {
+    border: none;
+    background-color: transparent;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+    color: $color-white;
+
+    &:hover {
+      animation: pulse 1.2s ease-out infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    color: $color-primary;
+    transform: scale(1) skewY(0deg);
+  }
+  50% {
+    color: $color-primary-light;
+    transform: scale(1.05) skewY(-2deg);
+  }
+  100% {
+    color: $color-primary;
+    transform: scale(1) skewY(0deg);
+  }
+}

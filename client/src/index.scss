@@ -1,0 +1,35 @@
+@import 'scss/config';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1 rem = 10px
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 40%;
+  }
+}
+
+body {
+  font-family: $font-primary, sans-serif;
+  font-size: $font-size-default;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background-color: $color-background-selection;
+  color: $color-primary;
+}

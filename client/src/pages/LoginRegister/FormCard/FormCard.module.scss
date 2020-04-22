@@ -1,0 +1,65 @@
+@import 'scss/config';
+
+.formCard {
+  justify-self: center;
+  min-width: 50rem;
+  max-width: 50rem;
+  font-size: 1.4rem;
+  position: relative;
+  border-radius: $border-radius-default;
+  transition: all 0.5s ease-out;
+  perspective: 60rem;
+
+  &Login,
+  &Register {
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--flip-front, 0));
+  }
+  &Login {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &Register {
+    position: relative;
+    transform: rotateY(var(--flip-back, 180deg));
+  }
+
+  & p {
+    color: $color-white;
+
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .btn {
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $color-primary-light;
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+}
+
+.flip {
+  --flip-front: -180deg;
+  --flip-back: 0deg;
+}

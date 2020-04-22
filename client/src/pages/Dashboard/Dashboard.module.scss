@@ -1,0 +1,16 @@
+@import 'scss/config';
+
+.container {
+  padding: 3rem 6rem;
+  overflow: scroll;
+  display: grid;
+  row-gap: 3rem;
+  column-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+.heading {
+  margin-bottom: 1rem;
+  color: $color-primary;
+  justify-self: center;
+  grid-column: 1/-1;
+}
