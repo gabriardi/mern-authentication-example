@@ -14,8 +14,6 @@ Special mention to this series of articles:
 
 ## Getting started
 
----
-
 ## Prerequisites
 
 [**MongoDB**](https://www.mongodb.com/) database up and running
