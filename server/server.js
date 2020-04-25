@@ -7,25 +7,15 @@ const passport = require('passport');
 const users = require('./routes/api/users');
 const dashboard = require('./routes/api/dashboard');
 
-// Connect to MongoDB Atlas
-// mongoose
-//   .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URL}`, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false,
-//   })
-//   .catch((err) => console.log(err));
+const dbUri = process.env.DB_URI || 'mongodb://localhost:27017/userDB?retryWrites=true&w=majority';
 
-// Connect to local MongoDB
 mongoose
-  .connect(`mongodb://localhost:27017/userDB?retryWrites=true&w=majority`, {
+  .connect(dbUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
   })
   .catch((err) => console.log(err));
-
-//
 
 const app = express();
 app.use(express.json());
@@ -38,4 +28,5 @@ require('./config/passport')(passport);
 app.use('/api/users', users);
 app.use('/api/dashboard', dashboard);
 
-app.listen(process.env.PORT || 5000);
+const port = process.env.PORT || 5000;
+app.listen(port, console.log(`Server listening on port ${port}`));

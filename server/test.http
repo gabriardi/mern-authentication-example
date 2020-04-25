@@ -5,10 +5,10 @@ POST {{BASE_URL}}/api/users/register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "test",
-    "email":"test@email.com",
-    "password":"test1234",
-    "password2":"test1234"
+    "name": "",
+    "email":"",
+    "password":"",
+    "password2":""
 }
 
 ### Login user
@@ -16,8 +16,8 @@ POST {{BASE_URL}}/api/users/login HTTP/1.1
 content-type: application/json
 
 {
-    "email":"test@test.com",
-    "password":"test1234"
+    "email":"",
+    "password":""
 }
 
 ### Refresh token

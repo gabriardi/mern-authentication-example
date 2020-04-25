@@ -72,7 +72,9 @@ router.post('/login', (req, res) => {
         };
         // Generate token
         const accessToken = generateAccessToken(payload);
-        const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH, { expiresIn: '24h' });
+        const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {
+          expiresIn: '24h',
+        });
         // Save refresh token
         foundUser.refreshToken.push(refreshToken);
         foundUser.save();
@@ -89,7 +91,7 @@ router.post('/token', (req, res) => {
   const refreshToken = req.body.token;
   if (refreshToken === null) return res.sendStatus(401);
 
-  jwt.verify(refreshToken, process.env.JWT_REFRESH, (err, payload) => {
+  jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, payload) => {
     if (err) {
       // if refresh token is expired delete it from server
       if (err.name === 'TokenExpiredError') {

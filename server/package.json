@@ -4,6 +4,7 @@
   "description": "MERN authentication example - backend",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix ../client",
     "test": "jest",
     "start": "node server.js",
     "server": "nodemon server.js",
